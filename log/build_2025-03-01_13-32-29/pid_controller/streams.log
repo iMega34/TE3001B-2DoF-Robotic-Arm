@@ -1,0 +1,33 @@
+[0.516s] Invoking command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/pid_controller': PYTHONPATH=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pid_controller build --build-base /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build install --record /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/install.log --single-version-externally-managed install_data
+[0.657s] running egg_info
+[0.658s] creating ../../build/pid_controller/pid_controller.egg-info
+[0.659s] writing ../../build/pid_controller/pid_controller.egg-info/PKG-INFO
+[0.661s] writing dependency_links to ../../build/pid_controller/pid_controller.egg-info/dependency_links.txt
+[0.661s] writing entry points to ../../build/pid_controller/pid_controller.egg-info/entry_points.txt
+[0.661s] writing requirements to ../../build/pid_controller/pid_controller.egg-info/requires.txt
+[0.662s] writing top-level names to ../../build/pid_controller/pid_controller.egg-info/top_level.txt
+[0.662s] writing manifest file '../../build/pid_controller/pid_controller.egg-info/SOURCES.txt'
+[0.664s] reading manifest file '../../build/pid_controller/pid_controller.egg-info/SOURCES.txt'
+[0.664s] writing manifest file '../../build/pid_controller/pid_controller.egg-info/SOURCES.txt'
+[0.665s] running build
+[0.665s] running build_py
+[0.665s] creating /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build
+[0.665s] creating /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build/lib
+[0.665s] creating /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build/lib/pid_controller
+[0.666s] copying pid_controller/__init__.py -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build/lib/pid_controller
+[0.670s] running install
+[0.670s] running install_lib
+[0.671s] creating /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller
+[0.671s] copying /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build/lib/pid_controller/__init__.py -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller
+[0.672s] byte-compiling /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller/__init__.py to __init__.cpython-310.pyc
+[0.672s] running install_data
+[0.672s] creating /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/share/ament_index
+[0.673s] creating /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/share/ament_index/resource_index
+[0.673s] creating /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/share/ament_index/resource_index/packages
+[0.674s] copying resource/pid_controller -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/share/ament_index/resource_index/packages
+[0.674s] copying package.xml -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/share/pid_controller
+[0.674s] running install_egg_info
+[0.675s] Copying ../../build/pid_controller/pid_controller.egg-info to /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller-0.0.0-py3.10.egg-info
+[0.681s] running install_scripts
+[0.696s] writing list of installed files to '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/install.log'
+[0.718s] Invoked command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/pid_controller' returned '0': PYTHONPATH=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pid_controller build --build-base /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build install --record /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/install.log --single-version-externally-managed install_data
