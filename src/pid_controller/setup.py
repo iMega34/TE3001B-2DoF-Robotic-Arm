@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'pid_control_node = pid_controller.pid_node:main',
+            'simulator_node = pid_controller.simulator_node:main',
         ],
     },
 )
