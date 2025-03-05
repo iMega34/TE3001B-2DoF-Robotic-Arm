@@ -22,10 +22,10 @@ class PIDControllerNode(Node):
         self.Kd = np.array([[0.05222, 0.01], [0.01, 0.05222]])
 
         # Resolución del encoder (pulsos por revolución)
-        self.encoder_resolution = 312  # Cambia este valor según tu encoder
+        self.encoder_resolution = 312  
 
         # Setpoint y valor medido
-        self.setpoint = np.array([0.0, 0.0])  # Setpoint inicial en ángulos (grados)
+        self.setpoint = np.array([90, 90])  # Setpoint inicial en ángulos (grados)
         self.measured_value = np.array([0.0, 0.0])  # Valor medido inicial en pulsos
 
         # Variables del PID
@@ -42,7 +42,7 @@ class PIDControllerNode(Node):
         # Subscriptor para el valor medido (posición en pulsos)
         self.encoder_sub = self.create_subscription(
             Float64MultiArray,  
-            '/current_pulses',   
+            '/encoders',   
             self.encoder_callback,
             10
         )
@@ -50,7 +50,7 @@ class PIDControllerNode(Node):
         # Subscriptor para el setpoint (posición en ángulos)
         self.setpoint_sub = self.create_subscription(
             Float64MultiArray, 
-            '/desired_angle',  
+            '/desired_joint',  
             self.setpoint_callback,
             10
         )
