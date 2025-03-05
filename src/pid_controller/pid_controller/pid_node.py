@@ -10,28 +10,28 @@
 import rclpy
 from rclpy.node import Node
 import numpy as np
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Int16MultiArray 
 
 class PIDControllerNode(Node):
     def __init__(self):
         super().__init__('pid_controller_node')
 
         # Matrices de ganancias (Kp, Ki, Kd)
-        self.Kp = np.array([[0.55273, 0.1], [0.1, 0.55273]])  
-        self.Ki = np.array([[0.30508, 0.05], [0.05, 0.30508]])
-        self.Kd = np.array([[0.05222, 0.01], [0.01, 0.05222]])
+        self.Kp = np.array([[0.55273, 0.1], [0.1, 0.55273]], dtype=np.float64)  
+        self.Ki = np.array([[0.30508, 0.05], [0.05, 0.30508]], dtype=np.float64)
+        self.Kd = np.array([[0.05222, 0.01], [0.01, 0.05222]], dtype=np.float64)
 
         # Resolución del encoder (pulsos por revolución)
         self.encoder_resolution = 312  
 
         # Setpoint y valor medido
-        self.setpoint = np.array([90, 90])  # Setpoint inicial en ángulos (grados)
-        self.measured_value = np.array([0.0, 0.0])  # Valor medido inicial en pulsos
+        self.setpoint = np.array([90, 90], dtype=np.float64)  # Setpoint inicial en ángulos (grados)
+        self.measured_value = np.array([0, 0], dtype=np.int16)  # Valor medido inicial en pulsos (int16)
 
         # Variables del PID
-        self.previous_error = np.array([0.0, 0.0])
-        self.integral = np.array([0.0, 0.0])
-        self.dt = 0.1  # Intervalo de tiempo (en segundos)
+        self.previous_error = np.array([0.0, 0.0], dtype=np.float64)
+        self.integral = np.array([0.0, 0.0], dtype=np.float64)
+        self.dt = .5  # Intervalo de tiempo (en segundos)
 
         # Margen de error para detener el controlador (en pulsos)
         self.error_margin = 1  
@@ -41,23 +41,23 @@ class PIDControllerNode(Node):
 
         # Subscriptor para el valor medido (posición en pulsos)
         self.encoder_sub = self.create_subscription(
-            Float64MultiArray,  
+            Int16MultiArray,  # Cambiar a Int16MultiArray
             '/encoders',   
             self.encoder_callback,
-            10
+            5  # Reducir el tamaño de la cola
         )
 
         # Subscriptor para el setpoint (posición en ángulos)
         self.setpoint_sub = self.create_subscription(
-            Float64MultiArray, 
+            Int16MultiArray,  # Cambiar a Int16MultiArray
             '/desired_joint',  
             self.setpoint_callback,
-            10
+            5  # Reducir el tamaño de la cola
         )
 
         # Publicador para la señal de control
         self.control_pub = self.create_publisher(
-            Float64MultiArray,  
+            Int16MultiArray,  # Cambiar a Int16MultiArray
             '/control_law',   
             10
         )
@@ -65,21 +65,24 @@ class PIDControllerNode(Node):
         # Timer para el bucle de control
         self.timer = self.create_timer(self.dt, self.control_loop)
 
+        # Crear el mensaje de control una sola vez
+        self.control_msg = Int16MultiArray()  # Cambiar a Int16MultiArray
+
     def encoder_callback(self, msg):
         # Actualizar el valor medido (posición en pulsos)
-        self.measured_value = np.array(msg.data)
+        self.measured_value = np.array(msg.data, dtype=np.int16)
         # Convertir la posición medida a ángulos
         measured_angle = self.pulses_to_angle(self.measured_value)
         # Imprimir la posición medida en pulsos y ángulos
-        self.get_logger().info(f"Posición medida: {self.measured_value} pulsos ({measured_angle} grados)")
+        self.get_logger().info(f"Posición medida: {self.measured_value} pulsos ({measured_angle} grados)", throttle_duration_sec=1)
 
     def setpoint_callback(self, msg):
         # Actualizar el setpoint (posición en ángulos)
-        self.setpoint = np.array(msg.data)
+        self.setpoint = np.array(msg.data, dtype=np.float64)
 
         # Convertir el setpoint de ángulos a pulsos
         self.setpoint = self.angle_to_pulses(self.setpoint)
-        self.get_logger().info(f"Setpoint actualizado: {self.setpoint} pulsos")
+        self.get_logger().info(f"Setpoint actualizado: {self.setpoint} pulsos", throttle_duration_sec=1)
 
         # Reiniciar la bandera de control cuando se actualiza el setpoint
         self.control_active = True
@@ -93,7 +96,7 @@ class PIDControllerNode(Node):
 
         # Verificar si el error está dentro del margen de error
         if np.all(np.abs(error) < self.error_margin):
-            self.get_logger().info("Setpoint alcanzado. Deteniendo el controlador.")
+            self.get_logger().info("Setpoint alcanzado. Deteniendo el controlador.", throttle_duration_sec=1)
             self.control_active = False
             return  
 
@@ -107,16 +110,17 @@ class PIDControllerNode(Node):
 
         control_signal = proportional + integral + derivative
 
-        control_signal = np.clip(control_signal, -255, 255)
+        # Asegurarse de que la señal de control esté en el rango de int16
+        control_signal = np.clip(control_signal, -32768, 32767)  # Rango de int16
+        control_signal = control_signal.astype(np.int16)  # Convertir a int16
 
         self.previous_error = error
 
-        # Publicar la señal de control
-        control_msg = Float64MultiArray()
-        control_msg.data = control_signal.tolist()
-        self.control_pub.publish(control_msg)
+        # Reutilizar el mensaje existente
+        self.control_msg.data = control_signal.tolist()
+        self.control_pub.publish(self.control_msg)
 
-        self.get_logger().info(f"Señal de control enviada: {control_msg.data}")
+        self.get_logger().info(f"Señal de control enviada: {self.control_msg.data}", throttle_duration_sec=1)
 
     def angle_to_pulses(self, angle):
         return angle * (self.encoder_resolution / 360.0)
