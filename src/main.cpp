@@ -177,7 +177,7 @@ void setup() {
 
   // Creates the timer the publishes each 1000ms
   if (rclc_timer_init_default(
-      &timer, &support, RCL_MS_TO_NS(50), timer_callback
+      &timer, &support, RCL_MS_TO_NS(20), timer_callback
   ) != RCL_RET_OK) {
     Serial.println("[ERROR] Can't start the timer.");
     error_loop();
@@ -208,7 +208,7 @@ void setup() {
 
 void loop() {
   delay(100);
-  rcl_ret_t ret = rclc_executor_spin_some(&executor, RCL_MS_TO_NS(50));
+  rcl_ret_t ret = rclc_executor_spin_some(&executor, RCL_MS_TO_NS(20));
   if (ret != RCL_RET_OK) {
       Serial.print("[ERROR] Executor failed: ");
       Serial.println(ret);
