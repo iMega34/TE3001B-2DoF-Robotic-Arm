@@ -8,20 +8,22 @@
 
 #include <std_msgs/msg/int16_multi_array.h>
 
-#define ENCODER1_CA_PIN   23
-#define ENCODER1_CB_PIN   22
-#define ENCODER2_CA_PIN   19
-#define ENCODER2_CB_PIN   18
+#define ENCODER1_CA_PIN     23
+#define ENCODER1_CB_PIN     22
+#define ENCODER2_CA_PIN     19
+#define ENCODER2_CB_PIN     18
 
-#define MOTOR1_INA_PIN    4
-#define MOTOR1_INB_PIN    21
-#define MOTOR2_INA_PIN    25
-#define MOTOR2_INB_PIN    26
+#define MOTOR1_INA_PIN      4
+#define MOTOR1_INB_PIN      21
+#define MOTOR2_INA_PIN      25
+#define MOTOR2_INB_PIN      26
 
-#define MOTOR1_PWM_PIN    15
-#define MOTOR2_PWM_PIN    2
+#define MOTOR1_PWM_PIN      15
+#define MOTOR2_PWM_PIN      2
 
-#define LED_PIN 5
+#define LED_PIN             5
+
+#define ENCODER_RESOLUTION  580
 
 rcl_allocator_t allocator;
 rclc_executor_t executor;
@@ -83,6 +85,10 @@ void subscription_callback(const void *msgin) {
 void timer_callback(rcl_timer_t* timer, int64_t last_call_time) {
   RCLC_UNUSED(last_call_time);
   if (timer != NULL) {
+
+    encoders_data[0] = (encoder1_count * 360 / ENCODER_RESOLUTION) % 360;
+    encoders_data[1] = (encoder2_count * 360 / ENCODER_RESOLUTION) % 360;
+
     encoders_msg.data.data = encoders_data;
     encoders_msg.data.size = 2;
     encoders_msg.data.capacity = 2;
