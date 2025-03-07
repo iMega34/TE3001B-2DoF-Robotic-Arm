@@ -137,18 +137,15 @@ void setup() {
 
   // Waits until the serial communication is ready and stable
   delay(2000);
-  Serial.println("Starting MicroROS in the ESP32...");  
 
   // Iniitalizaes MicroROS in the ESP32
   allocator = rcl_get_default_allocator();
   if (rclc_support_init(&support, 0, NULL, &allocator) != RCL_RET_OK) {
-    Serial.println("[ERROR] Can't start Micro-ROS.");
     error_loop();
   }
 
   // Creates the node
   if (rclc_node_init_default(&node, "motor_driver", "", &support) != RCL_RET_OK) {
-    Serial.println("[ERROR] Can't create the node.");
     error_loop();
   }
 
@@ -157,10 +154,7 @@ void setup() {
   encoders_msg.data.capacity = 2;
 
   // Creates the publisher
-  if (rclc_publisher_init_default(
-    &encoders_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int16MultiArray), "encoders"
-  ) != RCL_RET_OK ) {
-    Serial.println("[ERROR] Can't start the publisher.");
+  if (rclc_publisher_init_default(&encoders_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int16MultiArray), "encoders") != RCL_RET_OK ) {
     error_loop();
   }
 
@@ -168,49 +162,32 @@ void setup() {
   control_law_msg.data.size = 2;
   control_law_msg.data.capacity = 2;
 
-  if (rclc_subscription_init_default(
-    &control_law_sub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int16MultiArray), "control_law"
-  ) != RCL_RET_OK) {
-    Serial.println("[ERROR] Can't start the subscriber.");
+  if (rclc_subscription_init_default(&control_law_sub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int16MultiArray), "control_law") != RCL_RET_OK) {
     error_loop();
   }
 
   // Creates the timer the publishes each 1000ms
-  if (rclc_timer_init_default(
-      &timer, &support, RCL_MS_TO_NS(20), timer_callback
-  ) != RCL_RET_OK) {
-    Serial.println("[ERROR] Can't start the timer.");
+  if (rclc_timer_init_default(&timer, &support, RCL_MS_TO_NS(20), timer_callback) != RCL_RET_OK) {
     error_loop();
   }
 
   // Creates the executor to handle the publisher and subscriber
   if (rclc_executor_init(&executor, &support.context, 2, &allocator) != RCL_RET_OK) {
-    Serial.println("[ERROR] Can't start the executor.");
     error_loop();
   }
 
   // Add the timer to the executor
   if (rclc_executor_add_timer(&executor, &timer) != RCL_RET_OK) {
-      Serial.println("[ERROR] Can't add the timer to the executor");
       error_loop();
   }
 
   // Agregar el suscriptor al ejecutor
-  if (rclc_executor_add_subscription(
-    &executor, &control_law_sub, &control_law_msg, &subscription_callback, ON_NEW_DATA
-  ) != RCL_RET_OK) {
-    Serial.println("[ERROR] Can't add the subscriber to the executor.");
+  if (rclc_executor_add_subscription(&executor, &control_law_sub, &control_law_msg, &subscription_callback, ON_NEW_DATA) != RCL_RET_OK) {
     error_loop();
   }
-
-  Serial.println("Micro-ROS started successfully.");
 }
 
 void loop() {
   delay(100);
-  rcl_ret_t ret = rclc_executor_spin_some(&executor, RCL_MS_TO_NS(20));
-  if (ret != RCL_RET_OK) {
-      Serial.print("[ERROR] Executor failed: ");
-      Serial.println(ret);
-  }
+  rclc_executor_spin_some(&executor, RCL_MS_TO_NS(20));
 }
