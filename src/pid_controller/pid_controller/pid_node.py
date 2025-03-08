@@ -1,64 +1,64 @@
 #!/usr/bin/env python3
 
-##
- # pid_node.py
- #
- #  Created on: March 3, 2025
- #      Author: @sofiaariasv
-##
-
 import rclpy
 from rclpy.node import Node
-import numpy as np
-from std_msgs.msg import Int16MultiArray 
+from std_msgs.msg import Int16MultiArray
 
 class PIDControllerNode(Node):
     def __init__(self):
-        super().__init__('pid_controller_node')
+        super().__init__('pid_controller')
 
-        # Matrices de ganancias (Kp, Ki, Kd)
-        self.Kp = np.array([[0.55273, 0.1], [0.1, 0.55273]], dtype=np.float64)  
-        self.Ki = np.array([[0.30508, 0.05], [0.05, 0.30508]], dtype=np.float64)
-        self.Kd = np.array([[0.05222, 0.01], [0.01, 0.05222]], dtype=np.float64)
+        # Parámetros independientes para cada motor
+        self.motor_params = {
+            'motor1': {
+                'Kp': 0.55273,  # Ganancia proporcional
+                'Ki': 0.20,  # Ganancia integral
+                'Kd': 0.0,      # Ganancia derivativa
+                'setpoint': 0.0,  # Setpoint en grados
+                'measured_angle': 0.0,  # Valor medido en grados
+                'previous_error': 0.0,  # Error anterior
+                'integral': 0.0,  # Término integral acumulado
+            },
+            'motor2': {
+                'Kp': 0.5527,  # Ganancia proporcional
+                'Ki': 0.20,  # Ganancia integral
+                'Kd': 0.0,  # Ganancia derivativa
+                'setpoint': 90.0,  # Setpoint en grados
+                'measured_angle': 0.0,  # Valor medido en grados
+                'previous_error': 0.0,  # Error anterior
+                'integral': 0.0,  # Término integral acumulado
+            }
+        }
 
-        # Resolución del encoder (pulsos por revolución)
-        self.encoder_resolution = 312  
+        # Intervalo de tiempo (en segundos)
+        self.dt = 0.5
 
-        # Setpoint y valor medido
-        self.setpoint = np.array([90, 90], dtype=np.float64)  # Setpoint inicial en ángulos (grados)
-        self.measured_value = np.array([0, 0], dtype=np.int16)  # Valor medido inicial en pulsos (int16)
-
-        # Variables del PID
-        self.previous_error = np.array([0.0, 0.0], dtype=np.float64)
-        self.integral = np.array([0.0, 0.0], dtype=np.float64)
-        self.dt = .5  # Intervalo de tiempo (en segundos)
-
-        # Margen de error para detener el controlador (en pulsos)
-        self.error_margin = 1  
+        # Margen de error para detener el controlador (en grados)
+        self.error_margin = 1.0
 
         # Bandera para habilitar/deshabilitar el control
         self.control_active = True
 
-        # Subscriptor para el valor medido (posición en pulsos)
+        # Subscriptor para el valor medido (posición en grados)
         self.encoder_sub = self.create_subscription(
-            Int16MultiArray,  # Cambiar a Int16MultiArray
-            '/encoders',   
+            Int16MultiArray,
+            '/encoders',
             self.encoder_callback,
-            5  # Reducir el tamaño de la cola
+            5
         )
 
-        # Subscriptor para el setpoint (posición en ángulos)
+        # Subscriptor para el setpoint (posición en grados)
         self.setpoint_sub = self.create_subscription(
-            Int16MultiArray,  # Cambiar a Int16MultiArray
-            '/desired_joint',  
+            Int16MultiArray,
+            '/desired_joint',
             self.setpoint_callback,
-            5  # Reducir el tamaño de la cola
+            5
         )
 
         # Publicador para la señal de control
         self.control_pub = self.create_publisher(
-            Int16MultiArray,  # Cambiar a Int16MultiArray
-            '/control_law',   
+            Int16MultiArray,
+            '/control_law',
             10
         )
 
@@ -66,67 +66,76 @@ class PIDControllerNode(Node):
         self.timer = self.create_timer(self.dt, self.control_loop)
 
         # Crear el mensaje de control una sola vez
-        self.control_msg = Int16MultiArray()  # Cambiar a Int16MultiArray
+        self.control_msg = Int16MultiArray()
 
     def encoder_callback(self, msg):
-        # Actualizar el valor medido (posición en pulsos)
-        self.measured_value = np.array(msg.data, dtype=np.int16)
-        # Convertir la posición medida a ángulos
-        measured_angle = self.pulses_to_angle(self.measured_value)
-        # Imprimir la posición medida en pulsos y ángulos
-        self.get_logger().info(f"Posición medida: {self.measured_value} pulsos ({measured_angle} grados)", throttle_duration_sec=1)
+        # Actualizar los valores medidos (posición en grados) para cada motor
+        if len(msg.data) >= 2:
+            self.motor_params['motor1']['measured_angle'] = float(msg.data[0])
+            self.motor_params['motor2']['measured_angle'] = float(msg.data[1])
+
+            # Mostrar en el log
+            for motor in ['motor1', 'motor2']:
+                self.get_logger().info(
+                    f"{motor}: Posición medida = {self.motor_params[motor]['measured_angle']} grados")
 
     def setpoint_callback(self, msg):
-        # Actualizar el setpoint (posición en ángulos)
-        self.setpoint = np.array(msg.data, dtype=np.float64)
+        # Actualizar los setpoints (posición en grados) para cada motor
+        if len(msg.data) >= 2:
+            self.motor_params['motor1']['setpoint'] = float(msg.data[0])
+            self.motor_params['motor2']['setpoint'] = float(msg.data[1])
 
-        # Convertir el setpoint de ángulos a pulsos
-        self.setpoint = self.angle_to_pulses(self.setpoint)
-        self.get_logger().info(f"Setpoint actualizado: {self.setpoint} pulsos", throttle_duration_sec=1)
+            # Mostrar en el log
+            for motor in ['motor1', 'motor2']:
+                self.get_logger().info(
+                    f"{motor}: Setpoint actualizado = {self.motor_params[motor]['setpoint']} grados")
 
-        # Reiniciar la bandera de control cuando se actualiza el setpoint
-        self.control_active = True
+            # Reiniciar la bandera de control cuando se actualiza el setpoint
+            self.control_active = True
 
     def control_loop(self):
         if not self.control_active:
-            return  
+            return
 
-        # Calcular el error (en pulsos)
-        error = self.setpoint - self.measured_value
+        # Calcular la señal de control para cada motor
+        control_signals = []
+        for motor in ['motor1', 'motor2']:
+            params = self.motor_params[motor]
 
-        # Verificar si el error está dentro del margen de error
-        if np.all(np.abs(error) < self.error_margin):
-            self.get_logger().info("Setpoint alcanzado. Deteniendo el controlador.", throttle_duration_sec=1)
-            self.control_active = False
-            return  
+            # Calcular el error (en grados)
+            error = params['setpoint'] - params['measured_angle']
 
-        # Control PID
-        proportional = self.Kp @ error
+            # Verificar si el error está dentro del margen de error
+            if abs(error) < self.error_margin:
+                self.get_logger().info(f"{motor}: Setpoint alcanzado.")
+                control_signals.append(0)  # No enviar señal de control
+                self.control_active = False
+                continue
 
-        self.integral += error * self.dt
-        integral = self.Ki @ self.integral
+            # Control PID
+            proportional = params['Kp'] * error
+            params['integral'] += error * self.dt
+            integral = params['Ki'] * params['integral']
+            derivative = params['Kd'] * ((error - params['previous_error']) / self.dt)
 
-        derivative = self.Kd @ ((error - self.previous_error) / self.dt)
+            # Señal de control
+            control_signal = proportional + integral + derivative
 
-        control_signal = proportional + integral + derivative
+            # Asegurarse de que la señal de control esté en el rango de PWM
+            pwm_min, pwm_max = (-60, 60)
+            control_signal = max(min(control_signal, pwm_max), pwm_min)
 
-        # Asegurarse de que la señal de control esté en el rango de int16
-        control_signal = np.clip(control_signal, -32768, 32767)  # Rango de int16
-        control_signal = control_signal.astype(np.int16)  # Convertir a int16
+            # Actualizar el error anterior
+            params['previous_error'] = error
 
-        self.previous_error = error
+            # Agregar la señal de control a la lista
+            control_signals.append(int(control_signal))
 
-        # Reutilizar el mensaje existente
-        self.control_msg.data = control_signal.tolist()
+        # Publicar las señales de control
+        self.control_msg.data = control_signals
         self.control_pub.publish(self.control_msg)
 
-        self.get_logger().info(f"Señal de control enviada: {self.control_msg.data}", throttle_duration_sec=1)
-
-    def angle_to_pulses(self, angle):
-        return angle * (self.encoder_resolution / 360.0)
-
-    def pulses_to_angle(self, pulses):
-        return pulses * (360.0 / self.encoder_resolution)
+        # self.get_logger().info(f"Señales de control enviadas: {control_signals}", throttle_duration_sec=1)
 
 def main(args=None):
     rclpy.init(args=args)
