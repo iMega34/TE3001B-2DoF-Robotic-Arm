@@ -1,0 +1,8 @@
+setup.py
+desired_position_pkg/__init__.py
+desired_position_pkg.egg-info/PKG-INFO
+desired_position_pkg.egg-info/SOURCES.txt
+desired_position_pkg.egg-info/dependency_links.txt
+desired_position_pkg.egg-info/top_level.txt
+desired_position_pkg/srv/__init__.py
+desired_position_pkg/srv/_desired_position.py

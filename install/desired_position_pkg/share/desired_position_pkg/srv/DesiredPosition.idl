@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from desired_position_pkg/srv/DesiredPosition.srv
+// generated code does not contain a copyright notice
+
+
+module desired_position_pkg {
+  module srv {
+    struct DesiredPosition_Request {
+      int16 x;
+
+      int16 y;
+    };
+    struct DesiredPosition_Response {
+      int16 theta1;
+
+      int16 theta2;
+    };
+  };
+};

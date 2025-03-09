@@ -1,7 +1,0 @@
-# Solicitud (Request): Posición deseada (x, y)
-float64 x
-float64 y
----
-# Respuesta (Response): Angulos obtenidos (o valores de error si no es posible)
-float64 theta1
-float64 theta2

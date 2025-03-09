@@ -1,0 +1,4 @@
+[console_scripts]
+inverse_kinematics_cliente = inverse_kinematics_pkg.nodo_cliente:main
+inverse_kinematics_servidor = inverse_kinematics_pkg.nodo_servidor:main
+

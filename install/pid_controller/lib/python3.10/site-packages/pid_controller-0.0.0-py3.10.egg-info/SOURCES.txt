@@ -9,6 +9,8 @@ setup.py
 ../../build/pid_controller/pid_controller.egg-info/top_level.txt
 ../../build/pid_controller/pid_controller.egg-info/zip-safe
 pid_controller/__init__.py
+pid_controller/pid_node.py
+pid_controller/simulator_node.py
 resource/pid_controller
 test/test_copyright.py
 test/test_flake8.py

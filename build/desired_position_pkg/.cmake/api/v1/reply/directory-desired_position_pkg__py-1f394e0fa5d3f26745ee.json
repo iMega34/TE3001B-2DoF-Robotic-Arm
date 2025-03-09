@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "desired_position_pkg__py",
+		"source" : "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg/desired_position_pkg__py"
+	}
+}

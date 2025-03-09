@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-9af24315d037759dd30c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "desired_position_pkg__py",
+					"jsonFile" : "directory-desired_position_pkg__py-1f394e0fa5d3f26745ee.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg/desired_position_pkg__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "desired_position_pkg",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_desired_position_pkg_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_desired_position_pkg_egg-e89f306a9b61ad4a9d17.json",
+					"name" : "ament_cmake_python_build_desired_position_pkg_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_desired_position_pkg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_desired_position_pkg-bcc03a3d8507fafda71e.json",
+					"name" : "ament_cmake_python_copy_desired_position_pkg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg-1d16148b0eb717b7d87e.json",
+					"name" : "desired_position_pkg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__cpp-024ec5b296beac7e9690.json",
+					"name" : "desired_position_pkg__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "desired_position_pkg__py::@cf276202d08b180e0d28",
+					"jsonFile" : "target-desired_position_pkg__py-da868fb7c89c61f398d3.json",
+					"name" : "desired_position_pkg__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_generator_c-75f35020a4999f0725ba.json",
+					"name" : "desired_position_pkg__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_generator_py-cdaddf751c121f82a999.json",
+					"name" : "desired_position_pkg__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_typesupport_c-f372e108b7ebb3e30b69.json",
+					"name" : "desired_position_pkg__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_typesupport_c__pyext-abd58fa3aa1c5ad7084d.json",
+					"name" : "desired_position_pkg__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_typesupport_cpp-466b322e04fb357e065c.json",
+					"name" : "desired_position_pkg__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_typesupport_fastrtps_c-d523768fe092782ca6b6.json",
+					"name" : "desired_position_pkg__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_typesupport_fastrtps_c__pyext-26f12b179aff57e8e4af.json",
+					"name" : "desired_position_pkg__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_typesupport_fastrtps_cpp-f1472ebf1c2afc6ff8da.json",
+					"name" : "desired_position_pkg__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_typesupport_introspection_c-1526fe985e0a01614460.json",
+					"name" : "desired_position_pkg__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_typesupport_introspection_c__pyext-0dff66677d61c41dd194.json",
+					"name" : "desired_position_pkg__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg__rosidl_typesupport_introspection_cpp-7491377063b36679a038.json",
+					"name" : "desired_position_pkg__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "desired_position_pkg_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desired_position_pkg_uninstall-8b6ca551fca84c66afca.json",
+					"name" : "desired_position_pkg_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-31b0c50cfa0076d0f848.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg",
+		"source" : "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/desired_position_pkg"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

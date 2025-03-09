@@ -1,0 +1,63 @@
+[0.025s] Invoking command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg': CMAKE_PREFIX_PATH=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller:/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/cinematica_inversa_pkg:/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/cinematica_inversa_pkg/install/cinematica_inversa_pkg:/opt/ros/humble /usr/bin/cmake /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/desired_position_pkg -DCMAKE_INSTALL_PREFIX=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg
+[0.197s] -- The C compiler identification is GNU 11.4.0
+[0.287s] -- The CXX compiler identification is GNU 11.4.0
+[0.297s] -- Detecting C compiler ABI info
+[0.393s] -- Detecting C compiler ABI info - done
+[0.399s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.399s] -- Detecting C compile features
+[0.400s] -- Detecting C compile features - done
+[0.404s] -- Detecting CXX compiler ABI info
+[0.466s] -- Detecting CXX compiler ABI info - done
+[0.471s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.471s] -- Detecting CXX compile features
+[0.472s] -- Detecting CXX compile features - done
+[0.479s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.590s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.672s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.677s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.684s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.739s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.902s] [31mCMake Error at /opt/ros/humble/share/rosidl_adapter/cmake/rosidl_adapt_interfaces.cmake:59 (message):
+[0.902s]   execute_process(/usr/bin/python3 -m rosidl_adapter --package-name
+[0.902s]   desired_position_pkg --arguments-file
+[0.902s]   /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg/rosidl_adapter__arguments__desired_position_pkg.json
+[0.902s]   --output-dir
+[0.902s]   /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg/rosidl_adapter/desired_position_pkg
+[0.902s]   --output-file
+[0.902s]   /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg/rosidl_adapter/desired_position_pkg.idls)
+[0.902s]   returned error code 1:
+[0.902s] 
+[0.902s]   Traceback (most recent call last):
+[0.902s] 
+[0.902s]     File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+[0.902s]       return _run_code(code, main_globals, None,
+[0.902s]     File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+[0.902s]       exec(code, run_globals)
+[0.902s]     File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_adapter/__main__.py", line 19, in <module>
+[0.902s]       sys.exit(main())
+[0.902s]     File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_adapter/main.py", line 53, in main
+[0.902s]       abs_idl_file = convert_to_idl(
+[0.903s]     File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_adapter/__init__.py", line 24, in convert_to_idl
+[0.903s]       return convert_srv_to_idl(
+[0.903s]     File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_adapter/srv/__init__.py", line 28, in convert_srv_to_idl
+[0.903s]       srv = parse_service_string(package_name, input_file.stem, content)
+[0.903s]     File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_adapter/parser.py", line 859, in parse_service_string
+[0.903s]       request_message = parse_message_string(
+[0.903s]     File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_adapter/parser.py", line 544, in parse_message_string
+[0.903s]       msg = MessageSpecification(pkg_name, msg_name, fields, constants)
+[0.903s]     File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_adapter/parser.py", line 388, in __init__
+[0.903s]       self.base_type = BaseType(
+[0.903s]     File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_adapter/parser.py", line 205, in __init__
+[0.903s]       raise InvalidResourceName(
+[0.903s] 
+[0.903s]   rosidl_adapter.parser.InvalidResourceName: 'desiredPosition_Request' is an
+[0.903s]   invalid message name.  It should have the pattern '^[A-Z][A-Za-z0-9]*$'
+[0.903s] 
+[0.903s] Call Stack (most recent call first):
+[0.903s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:130 (rosidl_adapt_interfaces)
+[0.903s]   CMakeLists.txt:15 (rosidl_generate_interfaces)
+[0.903s] 
+[0.903s] [0m
+[0.903s] -- Configuring incomplete, errors occurred!
+[0.904s] See also "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg/CMakeFiles/CMakeOutput.log".
+[0.908s] Invoked command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg' returned '1': CMAKE_PREFIX_PATH=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller:/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/cinematica_inversa_pkg:/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/cinematica_inversa_pkg/install/cinematica_inversa_pkg:/opt/ros/humble /usr/bin/cmake /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/desired_position_pkg -DCMAKE_INSTALL_PREFIX=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg

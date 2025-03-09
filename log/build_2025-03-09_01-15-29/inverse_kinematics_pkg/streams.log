@@ -1,0 +1,25 @@
+[0.495s] Invoking command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/inverse_kinematics_pkg': PYTHONPATH=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/inverse_kinematics_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/inverse_kinematics_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/inverse_kinematics_pkg build --build-base /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/inverse_kinematics_pkg/build install --record /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/inverse_kinematics_pkg/install.log --single-version-externally-managed install_data
+[0.649s] running egg_info
+[0.650s] writing ../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/PKG-INFO
+[0.650s] writing dependency_links to ../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/dependency_links.txt
+[0.651s] writing entry points to ../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/entry_points.txt
+[0.651s] writing requirements to ../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/requires.txt
+[0.651s] writing top-level names to ../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/top_level.txt
+[0.653s] reading manifest file '../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/SOURCES.txt'
+[0.654s] writing manifest file '../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/SOURCES.txt'
+[0.654s] running build
+[0.654s] running build_py
+[0.654s] copying inverse_kinematics_pkg/nodo_cliente.py -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/inverse_kinematics_pkg/build/lib/inverse_kinematics_pkg
+[0.654s] running install
+[0.655s] running install_lib
+[0.655s] copying /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/inverse_kinematics_pkg/build/lib/inverse_kinematics_pkg/nodo_cliente.py -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/inverse_kinematics_pkg/lib/python3.10/site-packages/inverse_kinematics_pkg
+[0.656s] byte-compiling /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/inverse_kinematics_pkg/lib/python3.10/site-packages/inverse_kinematics_pkg/nodo_cliente.py to nodo_cliente.cpython-310.pyc
+[0.657s] running install_data
+[0.657s] running install_egg_info
+[0.658s] removing '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/inverse_kinematics_pkg/lib/python3.10/site-packages/inverse_kinematics_pkg-0.0.0-py3.10.egg-info' (and everything under it)
+[0.659s] Copying ../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info to /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/inverse_kinematics_pkg/lib/python3.10/site-packages/inverse_kinematics_pkg-0.0.0-py3.10.egg-info
+[0.661s] running install_scripts
+[0.677s] Installing inverse_kinematics_cliente script to /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/inverse_kinematics_pkg/lib/inverse_kinematics_pkg
+[0.677s] Installing inverse_kinematics_servidor script to /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/inverse_kinematics_pkg/lib/inverse_kinematics_pkg
+[0.677s] writing list of installed files to '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/inverse_kinematics_pkg/install.log'
+[0.696s] Invoked command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/inverse_kinematics_pkg' returned '0': PYTHONPATH=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/inverse_kinematics_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/inverse_kinematics_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/inverse_kinematics_pkg build --build-base /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/inverse_kinematics_pkg/build install --record /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/inverse_kinematics_pkg/install.log --single-version-externally-managed install_data

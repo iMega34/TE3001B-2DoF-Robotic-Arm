@@ -1,0 +1,24 @@
+{
+  "package_name": "desired_position_pkg",
+  "output_dir": "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg/rosidl_generator_py/desired_position_pkg",
+  "template_dir": "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource",
+  "idl_tuples": [
+    "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg/rosidl_adapter/desired_position_pkg:srv/DesiredPosition.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_py/__init__.py",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_py/generate_py_impl.py",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_action_pkg_typesupport_entry_point.c.em",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_action.py.em",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_idl_pkg_typesupport_entry_point.c.em",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_idl_support.c.em",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_idl.py.em",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_msg_pkg_typesupport_entry_point.c.em",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_msg_support.c.em",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_msg.py.em",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_srv_pkg_typesupport_entry_point.c.em",
+    "/opt/ros/humble/share/rosidl_generator_py/cmake/../resource/_srv.py.em",
+    "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg/rosidl_adapter/desired_position_pkg/srv/DesiredPosition.idl"
+  ]
+}

@@ -1,0 +1,26 @@
+running egg_info
+writing ../../build/pid_controller/pid_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/pid_controller/pid_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/pid_controller/pid_controller.egg-info/entry_points.txt
+writing requirements to ../../build/pid_controller/pid_controller.egg-info/requires.txt
+writing top-level names to ../../build/pid_controller/pid_controller.egg-info/top_level.txt
+reading manifest file '../../build/pid_controller/pid_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/pid_controller/pid_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+copying pid_controller/pid_node.py -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build/lib/pid_controller
+copying pid_controller/simulator_node.py -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build/lib/pid_controller
+running install
+running install_lib
+copying /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build/lib/pid_controller/pid_node.py -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller
+copying /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/build/lib/pid_controller/simulator_node.py -> /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller
+byte-compiling /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller/pid_node.py to pid_node.cpython-310.pyc
+byte-compiling /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller/simulator_node.py to simulator_node.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/pid_controller/pid_controller.egg-info to /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/python3.10/site-packages/pid_controller-0.0.0-py3.10.egg-info
+running install_scripts
+Installing pid_control_node script to /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/pid_controller
+Installing simulator_node script to /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/pid_controller/lib/pid_controller
+writing list of installed files to '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/pid_controller/install.log'

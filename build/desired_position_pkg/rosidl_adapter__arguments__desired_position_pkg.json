@@ -1,0 +1,6 @@
+{
+  "package_name": "desired_position_pkg",
+  "non_idl_tuples": [
+    "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/desired_position_pkg:srv/DesiredPosition.srv"
+  ]
+}

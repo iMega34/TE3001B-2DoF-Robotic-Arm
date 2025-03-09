@@ -1,0 +1,221 @@
+[0.024s] Invoking command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/desired_position_pkg -DCMAKE_INSTALL_PREFIX=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg
+[0.036s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.149s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.151s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.153s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.179s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.382s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.549s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.725s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.740s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[0.742s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[0.763s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[0.764s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.764s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[0.764s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[0.779s] -- Found PythonExtra: .so  
+[0.807s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.840s] -- Added test 'lint_cmake' to check CMake code style
+[0.841s] -- Added test 'xmllint' to check XML markup files
+[0.845s] -- Configuring done
+[0.909s] -- Generating done
+[0.924s] -- Build files have been written to: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg
+[0.931s] Invoked command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/src/desired_position_pkg -DCMAKE_INSTALL_PREFIX=/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg
+[0.931s] Invoking command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg -- -j12 -l12
+[0.957s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[0.964s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[0.971s] [  6%] Built target ament_cmake_python_copy_desired_position_pkg
+[1.136s] running egg_info
+[1.136s] creating desired_position_pkg.egg-info
+[1.136s] writing desired_position_pkg.egg-info/PKG-INFO
+[1.137s] writing dependency_links to desired_position_pkg.egg-info/dependency_links.txt
+[1.137s] writing top-level names to desired_position_pkg.egg-info/top_level.txt
+[1.137s] writing manifest file 'desired_position_pkg.egg-info/SOURCES.txt'
+[1.138s] reading manifest file 'desired_position_pkg.egg-info/SOURCES.txt'
+[1.139s] writing manifest file 'desired_position_pkg.egg-info/SOURCES.txt'
+[1.160s] [  6%] Built target ament_cmake_python_build_desired_position_pkg_egg
+[1.178s] [  6%] Built target desired_position_pkg__cpp
+[1.186s] [ 16%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.186s] [ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.186s] [ 16%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.188s] [ 19%] [32mBuilding C object CMakeFiles/desired_position_pkg__rosidl_generator_c.dir/rosidl_generator_c/desired_position_pkg/srv/detail/desired_position__functions.c.o[0m
+[1.295s] [ 22%] [32m[1mLinking C shared library libdesired_position_pkg__rosidl_generator_c.so[0m
+[1.331s] [ 22%] Built target desired_position_pkg__rosidl_generator_c
+[1.340s] [ 29%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[1.340s] [ 32%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[1.340s] [ 32%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[1.382s] [ 35%] [32mBuilding CXX object CMakeFiles/desired_position_pkg__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/desired_position_pkg/srv/desired_position__type_support.cpp.o[0m
+[1.419s] [ 38%] [32mBuilding CXX object CMakeFiles/desired_position_pkg__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/desired_position_pkg/srv/detail/desired_position__type_support.cpp.o[0m
+[1.429s] [ 41%] [32mBuilding CXX object CMakeFiles/desired_position_pkg__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/desired_position_pkg/srv/detail/dds_fastrtps/desired_position__type_support.cpp.o[0m
+[1.577s] [ 45%] [32mBuilding CXX object CMakeFiles/desired_position_pkg__rosidl_typesupport_c.dir/rosidl_typesupport_c/desired_position_pkg/srv/desired_position__type_support.cpp.o[0m
+[1.626s] [ 48%] [32mBuilding CXX object CMakeFiles/desired_position_pkg__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/desired_position_pkg/srv/detail/desired_position__type_support_c.cpp.o[0m
+[1.626s] [ 51%] [32mBuilding C object CMakeFiles/desired_position_pkg__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/desired_position_pkg/srv/detail/desired_position__type_support.c.o[0m
+[1.630s] [ 54%] [32m[1mLinking CXX shared library libdesired_position_pkg__rosidl_typesupport_c.so[0m
+[1.664s] [ 58%] [32m[1mLinking C shared library libdesired_position_pkg__rosidl_typesupport_introspection_c.so[0m
+[1.680s] [ 58%] Built target desired_position_pkg__rosidl_typesupport_c
+[1.694s] [ 58%] Built target desired_position_pkg__rosidl_typesupport_introspection_c
+[1.772s] [ 61%] [32m[1mLinking CXX shared library libdesired_position_pkg__rosidl_typesupport_cpp.so[0m
+[1.802s] [ 61%] Built target desired_position_pkg__rosidl_typesupport_cpp
+[1.837s] [ 64%] [32m[1mLinking CXX shared library libdesired_position_pkg__rosidl_typesupport_introspection_cpp.so[0m
+[1.856s] [ 67%] [32m[1mLinking CXX shared library libdesired_position_pkg__rosidl_typesupport_fastrtps_cpp.so[0m
+[1.866s] [ 67%] Built target desired_position_pkg__rosidl_typesupport_introspection_cpp
+[1.912s] [ 67%] Built target desired_position_pkg__rosidl_typesupport_fastrtps_cpp
+[1.919s] [ 70%] [32m[1mLinking CXX shared library libdesired_position_pkg__rosidl_typesupport_fastrtps_c.so[0m
+[1.970s] [ 70%] Built target desired_position_pkg__rosidl_typesupport_fastrtps_c
+[1.983s] [ 70%] Built target desired_position_pkg
+[1.995s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[2.233s] [ 74%] Built target desired_position_pkg__py
+[2.245s] [ 77%] [32mBuilding C object CMakeFiles/desired_position_pkg__rosidl_generator_py.dir/rosidl_generator_py/desired_position_pkg/srv/_desired_position_s.c.o[0m
+[2.348s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/desired_position_pkg/libdesired_position_pkg__rosidl_generator_py.so[0m
+[2.375s] [ 80%] Built target desired_position_pkg__rosidl_generator_py
+[2.389s] [ 90%] [32mBuilding C object CMakeFiles/desired_position_pkg__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/desired_position_pkg/_desired_position_pkg_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[2.389s] [ 90%] [32mBuilding C object CMakeFiles/desired_position_pkg__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/desired_position_pkg/_desired_position_pkg_s.ep.rosidl_typesupport_c.c.o[0m
+[2.389s] [ 90%] [32mBuilding C object CMakeFiles/desired_position_pkg__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/desired_position_pkg/_desired_position_pkg_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[2.457s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.464s] [100%] [32m[1mLinking C shared library rosidl_generator_py/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.464s] [100%] [32m[1mLinking C shared library rosidl_generator_py/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.480s] [100%] Built target desired_position_pkg__rosidl_typesupport_c__pyext
+[2.488s] [100%] Built target desired_position_pkg__rosidl_typesupport_introspection_c__pyext
+[2.490s] [100%] Built target desired_position_pkg__rosidl_typesupport_fastrtps_c__pyext
+[2.499s] Invoked command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg -- -j12 -l12
+[2.508s] Invoking command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg
+[2.513s] -- Install configuration: ""
+[2.514s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/ament_index/resource_index/rosidl_interfaces/desired_position_pkg
+[2.514s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg
+[2.514s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv
+[2.515s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail
+[2.515s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__type_support.h
+[2.515s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__struct.h
+[2.515s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__functions.c
+[2.516s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__functions.h
+[2.516s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/desired_position.h
+[2.516s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg
+[2.516s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg/rosidl_generator_c__visibility_control.h
+[2.516s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/environment/library_path.sh
+[2.516s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/environment/library_path.dsv
+[2.516s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_generator_c.so
+[2.517s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_generator_c.so" to ""
+[2.517s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg
+[2.517s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv
+[2.517s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail
+[2.517s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__rosidl_typesupport_fastrtps_c.h
+[2.518s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg
+[2.518s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[2.518s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_fastrtps_c.so
+[2.518s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_fastrtps_c.so" to ""
+[2.518s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg
+[2.518s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv
+[2.518s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail
+[2.518s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__rosidl_typesupport_introspection_c.h
+[2.519s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__type_support.c
+[2.519s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg
+[2.519s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[2.519s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_introspection_c.so
+[2.519s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_introspection_c.so" to ""
+[2.519s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_c.so
+[2.519s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_c.so" to ""
+[2.520s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg
+[2.520s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv
+[2.520s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/desired_position.hpp
+[2.520s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail
+[2.520s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__builder.hpp
+[2.520s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__type_support.hpp
+[2.520s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__struct.hpp
+[2.521s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__traits.hpp
+[2.521s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg
+[2.521s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg/rosidl_generator_cpp__visibility_control.hpp
+[2.521s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg
+[2.521s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv
+[2.521s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail
+[2.521s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/dds_fastrtps
+[2.521s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__rosidl_typesupport_fastrtps_cpp.hpp
+[2.521s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg
+[2.521s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[2.522s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_fastrtps_cpp.so
+[2.522s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_fastrtps_cpp.so" to ""
+[2.522s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg
+[2.522s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv
+[2.522s] -- Up-to-date: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail
+[2.522s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__type_support.cpp
+[2.522s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/include/desired_position_pkg/desired_position_pkg/srv/detail/desired_position__rosidl_typesupport_introspection_cpp.hpp
+[2.522s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_introspection_cpp.so
+[2.522s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_introspection_cpp.so" to ""
+[2.523s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_cpp.so
+[2.523s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_typesupport_cpp.so" to ""
+[2.523s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/environment/pythonpath.sh
+[2.523s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/environment/pythonpath.dsv
+[2.523s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg-0.0.0-py3.10.egg-info
+[2.523s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg-0.0.0-py3.10.egg-info/top_level.txt
+[2.523s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg-0.0.0-py3.10.egg-info/dependency_links.txt
+[2.524s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg-0.0.0-py3.10.egg-info/SOURCES.txt
+[2.524s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg-0.0.0-py3.10.egg-info/PKG-INFO
+[2.524s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg
+[2.524s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[2.524s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/srv
+[2.524s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/srv/_desired_position.py
+[2.524s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/srv/_desired_position_s.c
+[2.524s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/srv/__init__.py
+[2.524s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[2.525s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/_desired_position_pkg_s.ep.rosidl_typesupport_c.c
+[2.525s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/_desired_position_pkg_s.ep.rosidl_typesupport_fastrtps_c.c
+[2.525s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[2.525s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/libdesired_position_pkg__rosidl_generator_py.so
+[2.525s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/_desired_position_pkg_s.ep.rosidl_typesupport_introspection_c.c
+[2.525s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/__init__.py
+[2.552s] Listing '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg'...
+[2.552s] Compiling '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/__init__.py'...
+[2.552s] Listing '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/srv'...
+[2.552s] Compiling '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/srv/__init__.py'...
+[2.552s] Compiling '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/srv/_desired_position.py'...
+[2.556s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[2.556s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[2.556s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[2.556s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[2.556s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[2.557s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/local/lib/python3.10/dist-packages/desired_position_pkg/desired_position_pkg_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[2.557s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_generator_py.so
+[2.557s] -- Set runtime path of "/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/lib/libdesired_position_pkg__rosidl_generator_py.so" to ""
+[2.557s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/srv/DesiredPosition.idl
+[2.557s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/srv/DesiredPosition.srv
+[2.558s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/srv/DesiredPosition_Request.msg
+[2.558s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/srv/DesiredPosition_Response.msg
+[2.558s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/ament_index/resource_index/package_run_dependencies/desired_position_pkg
+[2.559s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/ament_index/resource_index/parent_prefix_path/desired_position_pkg
+[2.559s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/environment/ament_prefix_path.sh
+[2.560s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/environment/ament_prefix_path.dsv
+[2.560s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/environment/path.sh
+[2.560s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/environment/path.dsv
+[2.560s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/local_setup.bash
+[2.560s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/local_setup.sh
+[2.560s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/local_setup.zsh
+[2.561s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/local_setup.dsv
+[2.561s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/package.dsv
+[2.561s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/ament_index/resource_index/packages/desired_position_pkg
+[2.561s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/export_desired_position_pkg__rosidl_generator_cExport.cmake
+[2.561s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/export_desired_position_pkg__rosidl_generator_cExport-noconfig.cmake
+[2.561s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/export_desired_position_pkg__rosidl_typesupport_fastrtps_cExport.cmake
+[2.562s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/export_desired_position_pkg__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[2.562s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkg__rosidl_typesupport_introspection_cExport.cmake
+[2.577s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkg__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[2.578s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkg__rosidl_typesupport_cExport.cmake
+[2.578s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkg__rosidl_typesupport_cExport-noconfig.cmake
+[2.579s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/export_desired_position_pkg__rosidl_generator_cppExport.cmake
+[2.579s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/export_desired_position_pkg__rosidl_typesupport_fastrtps_cppExport.cmake
+[2.579s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/export_desired_position_pkg__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[2.579s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkg__rosidl_typesupport_introspection_cppExport.cmake
+[2.579s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkg__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[2.579s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkg__rosidl_typesupport_cppExport.cmake
+[2.579s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkg__rosidl_typesupport_cppExport-noconfig.cmake
+[2.579s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/export_desired_position_pkg__rosidl_generator_pyExport.cmake
+[2.580s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/export_desired_position_pkg__rosidl_generator_pyExport-noconfig.cmake
+[2.580s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/rosidl_cmake-extras.cmake
+[2.580s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/ament_cmake_export_include_directories-extras.cmake
+[2.580s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/ament_cmake_export_libraries-extras.cmake
+[2.580s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/ament_cmake_export_targets-extras.cmake
+[2.580s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[2.581s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.581s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[2.581s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkgConfig.cmake
+[2.581s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/cmake/desired_position_pkgConfig-version.cmake
+[2.581s] -- Installing: /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/install/desired_position_pkg/share/desired_position_pkg/package.xml
+[2.583s] Invoked command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg

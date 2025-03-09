@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/PKG-INFO
+../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/SOURCES.txt
+../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/dependency_links.txt
+../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/entry_points.txt
+../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/requires.txt
+../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/top_level.txt
+../../build/inverse_kinematics_pkg/inverse_kinematics_pkg.egg-info/zip-safe
+inverse_kinematics_pkg/__init__.py
+inverse_kinematics_pkg/nodo_cliente.py
+inverse_kinematics_pkg/nodo_servidor.py
+resource/inverse_kinematics_pkg
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
