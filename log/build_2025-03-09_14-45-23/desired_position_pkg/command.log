@@ -1,0 +1,4 @@
+Invoking command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg -- -j12 -l12
+Invoked command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg -- -j12 -l12
+Invoking command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg
+Invoked command in '/home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/sofia/sextoSem/TE3001B-2DoF-Robotic-Arm/build/desired_position_pkg
