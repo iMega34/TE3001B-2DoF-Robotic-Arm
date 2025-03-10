@@ -2,6 +2,7 @@
 import rclpy
 from rclpy.node import Node
 from desired_position_pkg.srv import DesiredPosition
+from std_msgs.msg import Int16MultiArray 
 import math
 
 class CinematicaInversa(Node):
@@ -14,6 +15,9 @@ class CinematicaInversa(Node):
 
         # Crear el servicio
         self.srv = self.create_service(DesiredPosition, 'desired_position', self.ik_callback)
+
+        # Crear el publisher para publicar los ángulos
+        self.publisher = self.create_publisher(Int16MultiArray, 'desired_joint', 10)
 
         self.get_logger().info("Nodo de Cinemática Inversa Listo.")
 
@@ -41,7 +45,6 @@ class CinematicaInversa(Node):
 
         # Calcular cinemática inversa
         theta1, theta2 = self.calculate_inverse_kinematics(x, y)
-        self.get_logger().info(f"Valores calculados: theta1={theta1}, theta2={theta2}")
 
             # Verificar si no hay solución
         if theta1 is None or theta2 is None:
@@ -61,8 +64,17 @@ class CinematicaInversa(Node):
         response.theta1 = int(theta1)
         response.theta2 = int(theta2)
 
-        self.get_logger().info(f"Ángulos calculados: theta1={theta1}, theta2={theta2}")
+        # Publicar los ángulos en el tópico "angulos_robot"
+        self.publish_angles(theta1, theta2)
         return response
+    
+    def publish_angles(self, theta1, theta2):
+        theta1=int(theta1)
+        theta2=int(theta2)
+        msg = Int16MultiArray()
+        msg.data = [int(theta1), int(theta2)] 
+        self.publisher.publish(msg)
+        self.get_logger().info(f"Ángulos publicados: theta1={theta1}, theta2={theta2}")
 
     def calculate_inverse_kinematics(self, x, y):
         # Calcular la distancia radial
