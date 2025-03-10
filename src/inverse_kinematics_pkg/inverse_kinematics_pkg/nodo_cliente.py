@@ -30,7 +30,7 @@ def main(args=None):
         # Enviar solicitud al servidor
         response = cliente.send_request(x, y)
 
-        if response.theta1 != -1.0 and response.theta2 != -1.0:
+        if response.theta1 != -1000.0 and response.theta2 != -1000.0:
             cliente.get_logger().info(f"Ángulos recibidos: theta1={response.theta1}, theta2={response.theta2}")
         else:
             cliente.get_logger().info("Posición no alcanzable.")
