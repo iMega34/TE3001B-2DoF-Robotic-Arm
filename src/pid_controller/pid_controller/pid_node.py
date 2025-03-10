@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import rclpy
+import rclpy.callback_groups
 from rclpy.node import Node
-from std_msgs.msg import Int16MultiArray
+
+from std_msgs.msg import Int16
 
 class PIDControllerNode(Node):
     def __init__(self):
@@ -10,132 +12,126 @@ class PIDControllerNode(Node):
 
         # Parámetros independientes para cada motor
         self.motor_params = {
+            # Base
             'motor1': {
-                'Kp': 0.55273,  # Ganancia proporcional
-                'Ki': 0.20,  # Ganancia integral
-                'Kd': 0.0,      # Ganancia derivativa
-                'setpoint': 0.0,  # Setpoint en grados
-                'measured_angle': 0.0,  # Valor medido en grados
-                'previous_error': 0.0,  # Error anterior
-                'integral': 0.0,  # Término integral acumulado
+                'Kp': 0.55273,
+                'Ki': 0.20,
+                'Kd': 0.0,
+                'setpoint': -20,
+                'measured_angle': 0.0,
+                'previous_error': 0.0,
+                'integral': 0.0
             },
+            # End effector
             'motor2': {
-                'Kp': 0.5527,  # Ganancia proporcional
-                'Ki': 0.20,  # Ganancia integral
-                'Kd': 0.0,  # Ganancia derivativa
-                'setpoint': 90.0,  # Setpoint en grados
-                'measured_angle': 0.0,  # Valor medido en grados
-                'previous_error': 0.0,  # Error anterior
-                'integral': 0.0,  # Término integral acumulado
+                'Kp': 0.50,
+                'Ki': 0.20,
+                'Kd': 0.0,
+                'setpoint': 90,
+                'measured_angle': 0.0,
+                'previous_error': 0.0,
+                'integral': 0.0
             }
         }
 
         # Intervalo de tiempo (en segundos)
-        self.dt = 0.5
+        self.dt = 0.1
 
         # Margen de error para detener el controlador (en grados)
-        self.error_margin = 1.0
+        self.error_margin = 15
 
         # Bandera para habilitar/deshabilitar el control
         self.control_active = True
 
         # Subscriptor para el valor medido (posición en grados)
-        self.encoder_sub = self.create_subscription(
-            Int16MultiArray,
-            '/encoders',
-            self.encoder_callback,
-            5
-        )
-
-        # Subscriptor para el setpoint (posición en grados)
-        self.setpoint_sub = self.create_subscription(
-            Int16MultiArray,
-            '/desired_joint',
-            self.setpoint_callback,
-            5
-        )
+        self.encoder1_sub = self.create_subscription(Int16, '/lower_encoder', self.encoder1_callback, 5)
+        self.encoder2_sub = self.create_subscription(Int16, '/upper_encoder', self.encoder2_callback, 5)
 
         # Publicador para la señal de control
-        self.control_pub = self.create_publisher(
-            Int16MultiArray,
-            '/control_law',
-            10
-        )
+        self.control1_pub = self.create_publisher(Int16, 'lower_motor', 10)
+        self.control2_pub = self.create_publisher(Int16, 'upper_motor', 10)
 
         # Timer para el bucle de control
-        self.timer = self.create_timer(self.dt, self.control_loop)
+        self.timer = self.create_timer(self.dt, self.control_loop, callback_group=rclpy.callback_groups.MutuallyExclusiveCallbackGroup())
 
         # Crear el mensaje de control una sola vez
-        self.control_msg = Int16MultiArray()
+        self.motor1_control_msg = Int16()
+        self.motor2_control_msg = Int16()
 
-    def encoder_callback(self, msg):
-        # Actualizar los valores medidos (posición en grados) para cada motor
-        if len(msg.data) >= 2:
-            self.motor_params['motor1']['measured_angle'] = float(msg.data[0])
-            self.motor_params['motor2']['measured_angle'] = float(msg.data[1])
 
-            # Mostrar en el log
-            for motor in ['motor1', 'motor2']:
-                self.get_logger().info(
-                    f"{motor}: Posición medida = {self.motor_params[motor]['measured_angle']} grados")
+    def encoder1_callback(self, msg):
+        self.motor_params['motor1']['measured_angle'] = msg.data
+        # if self.get_clock().now().nanoseconds % 10 == 0:
+            # self.get_logger().info(f"Motor1: Posición medida = {self.motor_params['motor1']['measured_angle']} grados")
 
-    def setpoint_callback(self, msg):
-        # Actualizar los setpoints (posición en grados) para cada motor
-        if len(msg.data) >= 2:
-            self.motor_params['motor1']['setpoint'] = float(msg.data[0])
-            self.motor_params['motor2']['setpoint'] = float(msg.data[1])
 
-            # Mostrar en el log
-            for motor in ['motor1', 'motor2']:
-                self.get_logger().info(
-                    f"{motor}: Setpoint actualizado = {self.motor_params[motor]['setpoint']} grados")
+    def encoder2_callback(self, msg):
+        self.motor_params['motor2']['measured_angle'] = msg.data
+        # if self.get_clock().now().nanoseconds % 10 == 0:
+            # self.get_logger().info(f"Motor2: Posición medida = {self.motor_params['motor2']['measured_angle']} grados")
 
-            # Reiniciar la bandera de control cuando se actualiza el setpoint
-            self.control_active = True
 
     def control_loop(self):
         if not self.control_active:
             return
 
-        # Calcular la señal de control para cada motor
+        # Bandera para verificar si ambos motores han alcanzado el setpoint
+        all_motors_reached_setpoint = True  
+
+        # Lista para almacenar las señales de control
         control_signals = []
+
         for motor in ['motor1', 'motor2']:
             params = self.motor_params[motor]
 
             # Calcular el error (en grados)
             error = params['setpoint'] - params['measured_angle']
 
+            self.get_logger().info(
+                f"{motor}: Error = {error} grados, Ángulo medido = {params['measured_angle']} grados, Setpoint = {params['setpoint']} grados"
+            )
+
             # Verificar si el error está dentro del margen de error
             if abs(error) < self.error_margin:
-                self.get_logger().info(f"{motor}: Setpoint alcanzado.")
+                self.get_logger().info(f"{motor}: Setpoint alcanzado, deteniendo motor.")
                 control_signals.append(0)  # No enviar señal de control
-                self.control_active = False
-                continue
+            else:
+                all_motors_reached_setpoint = False  # Si al menos un motor no ha llegado, no se detiene todo el control
 
-            # Control PID
-            proportional = params['Kp'] * error
-            params['integral'] += error * self.dt
-            integral = params['Ki'] * params['integral']
-            derivative = params['Kd'] * ((error - params['previous_error']) / self.dt)
+                # Control PID
+                proportional = params['Kp'] * error
 
-            # Señal de control
-            control_signal = proportional + integral + derivative
+                params['integral'] += error * self.dt
+                integral = params['Ki'] * params['integral']
+                integral = max(min(integral, 100), -100)  # Anti-windup
 
-            # Asegurarse de que la señal de control esté en el rango de PWM
-            pwm_min, pwm_max = (-60, 60)
-            control_signal = max(min(control_signal, pwm_max), pwm_min)
+                derivative = params['Kd'] * ((error - params['previous_error']) / self.dt)
 
-            # Actualizar el error anterior
-            params['previous_error'] = error
+                # Señal de control final
+                control_signal = proportional + integral + derivative
 
-            # Agregar la señal de control a la lista
-            control_signals.append(int(control_signal))
+                # Asegurar límites de PWM
+                pwm_min, pwm_max = (-32000, 32000) if motor == "motor1" else (-60, 60)
+                control_signal = max(min(control_signal, pwm_max), pwm_min)
 
-        # Publicar las señales de control
-        self.control_msg.data = control_signals
-        self.control_pub.publish(self.control_msg)
+                # Guardar señal de control
+                control_signals.append(int(control_signal))
 
-        # self.get_logger().info(f"Señales de control enviadas: {control_signals}", throttle_duration_sec=1)
+                # Actualizar error anterior
+                params['previous_error'] = error
+
+        if abs(self.motor_params['motor1']['setpoint'] - self.motor_params['motor1']['measured_angle']) >= self.error_margin:
+            self.motor1_control_msg.data = control_signals[0]
+            self.control1_pub.publish(self.motor1_control_msg)
+        
+        if abs(self.motor_params['motor2']['setpoint'] - self.motor_params['motor2']['measured_angle']) >= self.error_margin:
+            self.motor2_control_msg.data = control_signals[1]
+            self.control2_pub.publish(self.motor2_control_msg)
+
+        if all_motors_reached_setpoint:
+            self.get_logger().info("Ambos motores alcanzaron el setpoint. Desactivando control.")
+            self.control_active = False
+
 
 def main(args=None):
     rclpy.init(args=args)
