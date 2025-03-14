@@ -60,7 +60,7 @@ Kd: 0.115
 
 ![image](https://github.com/user-attachments/assets/16c938ea-ba36-4163-b49e-76a520cbdffa)
 
-### inverse Cinematic
+### Inverse Cinematic
 #### Formulas
 ![image](https://github.com/user-attachments/assets/48b678f4-379a-423c-87bb-32d2fca92352)
 ![image](https://github.com/user-attachments/assets/2ca2cb4a-3ca1-4324-8be6-c8a5d5a77fae)
@@ -76,7 +76,7 @@ Additionally, a Python simulation is included to visualize how the robot's joint
 
 
 ### Results of the project
-#### Inverse cinematic
+#### Inverse Cinematic
 ![image](https://github.com/user-attachments/assets/3e566179-7336-45a3-892f-e06e3e0f9df0)
 #### Video
 Click here to watch the video: [Here](https://drive.google.com/file/d/1HXhLsasoq05iibtM2fsnmvH80p_B4CIg/view?usp=sharing)
