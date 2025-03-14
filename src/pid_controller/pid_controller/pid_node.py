@@ -30,17 +30,17 @@ class PIDControllerNode(Node):
                 'Kp': 1.0,  # Ganancia proporcional
                 'Ki': 0.5,  # Ganancia integral
                 'Kd': 0.1,      # Ganancia derivativa
-                'setpoint': 60.0,  # Setpoint en grados
+                'setpoint': 0.0,  # Setpoint en grados
                 'measured_angle': 0.0,  # Valor medido en grados
                 'previous_error': 0.0,  # Error anterior
                 'integral': 0.0,  # Término integral acumulado
             },
             # End effector
             'motor2': {
-                'Kp': 0.14585,  # Ganancia proporcional
-                'Ki': 0.40811,  # Ganancia integral
-                'Kd': 0.0,  # Ganancia derivativa
-                'setpoint': 0.0,  # Setpoint en grados
+                'Kp': 0.030,  # Ganancia proporcional
+                'Ki': 0.015,  # Ganancia integral
+                'Kd': 0.115,  # Ganancia derivativa
+                'setpoint': 30,  # Setpoint en grados
                 'measured_angle': 0.0,  # Valor medido en grados
                 'previous_error': 0.0,  # Error anterior
                 'integral': 0.0,  # Término integral acumulado
@@ -80,7 +80,7 @@ class PIDControllerNode(Node):
 
 
     def encoder2_callback(self, msg: Int16) -> None:
-        self.motor_params['motor2']['measured_angle'] = msg.data
+        self.motor_params['motor2']['measured_angle'] = msg.data / 2
 
 
     def calculate_M(self, e2, thetaR2, L1, L2, m1, m2):
