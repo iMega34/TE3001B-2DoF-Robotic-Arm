@@ -24,28 +24,6 @@ Motors: DC motors with included encoder (GM 25-370 Motor with Encoder 12V DC 140
 
 ![image](https://github.com/user-attachments/assets/ef27cec1-42bc-4b06-8a6f-34d0f88312b6)
 
-## PID 
-#### PID of lower link
-Kp: 0.55273
-
-Ki: 0.20
-
-Kd: 0.0
-
-![image](https://github.com/user-attachments/assets/750e767a-38b8-43fd-8f11-993ec7741c08)
-
-#### PID of Upper link
-Kp: 0.50
-
-Ki: 0.20
-
-Kd: 0.0
-
-![image](https://github.com/user-attachments/assets/7cf6db67-9735-4ca8-94a2-fbbe1621cea2)
-
-#### Video
-Clic here to watch the video [aquí](https://drive.google.com/file/d/1GGvGxa0Eim0qaEbZwvnnj2Kc3X7D-hnp/view?usp=sharing).
-
 ## Inverse Kinematics
 #### Robot workspace
 
@@ -57,17 +35,53 @@ Lateral Limits of lower link: Defined by the joint angles (-90° to 90°).
 
 ![image](https://github.com/user-attachments/assets/4d60d083-45c5-400b-a631-2533c408297b)
 
-## Results of the PID
-The robotic arm is already reaching its target position, but there are a few things we need to fine-tune to make it run more smoothly and accurately. Here’s a breakdown of what we’ve noticed:
+## kalman
 
-#### Oscillations in Motor 2 (Upper Link):
-The motor for the upper link tends to oscillate, which makes the movement less stable than it should be. This tells us that we need to tweak the PID control to improve the motor’s response and prevent overshooting.
+## Challenge 1
+### Ros arquitecture
+![image](https://github.com/user-attachments/assets/043b634f-9c7d-4225-942f-7df10a4dd475)
 
-#### Structural Issues with Motor 2:
-The motor for the upper link sometimes drifts ("sweeps"), which suggests there might be a problem with the mechanical structure or how the control is implemented. This needs to be checked to avoid incorrect movements.
+### PID
+#### PID of lower link
+Kp: 0.55273
 
-#### Motor Noise:
-We’re working on implementing a Kalman filter to reduce noise in the encoder measurements. This will help us achieve more precise control and prevent jerky or inaccurate movements.
+Ki: 0.20
+
+Kd: 0.0
+
+![image](https://github.com/user-attachments/assets/18e938d4-4aed-40e4-928e-8bab877510f9)
+
+#### PID of Upper link
+Kp: .030
+
+Ki: 0.015
+
+Kd: 0.115
+
+![image](https://github.com/user-attachments/assets/16c938ea-ba36-4163-b49e-76a520cbdffa)
+
+### inverse Cinematic
+#### Formulas
+![image](https://github.com/user-attachments/assets/48b678f4-379a-423c-87bb-32d2fca92352)
+![image](https://github.com/user-attachments/assets/2ca2cb4a-3ca1-4324-8be6-c8a5d5a77fae)
+
+You input x and y in the terminal.
+The Cartesian plane is based on centimeters (cm) because the lengths of the robot's links are given in cm.
+In inverse kinematics, the robot's singularities are calculated, as well as its motion limits, and a warning message is displayed when a specific point cannot be reached.
+
+![image](https://github.com/user-attachments/assets/942ddb7d-dbeb-4d73-9a14-3e700fd1558e)
+
+Additionally, a Python simulation is included to visualize how the robot's joints are positioned after applying inverse kinematics.
+![image](https://github.com/user-attachments/assets/ddd324ad-dc61-4feb-90e9-04a5916602dc)
+
+
+### Results of the project
+#### Inverse cinematic
+![image](https://github.com/user-attachments/assets/3e566179-7336-45a3-892f-e06e3e0f9df0)
+#### Video
+Click here to watch the video: [Here](https://drive.google.com/file/d/1HXhLsasoq05iibtM2fsnmvH80p_B4CIg/view?usp=sharing)
+#### Result
+![image](https://github.com/user-attachments/assets/695f2a44-3a65-41a6-b6a2-a14421e22d41)
 
 ## Commands to run the project
 To flash the ESP32 use PlatformIO as the toolchain.
