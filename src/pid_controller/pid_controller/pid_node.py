@@ -4,9 +4,10 @@ import rclpy
 import rclpy.callback_groups
 from rclpy.node import Node
 
-from std_msgs.msg import Int16
+from std_msgs.msg import Int16, Int16MultiArray
 
-from math import sin
+import numpy as np
+from numpy import cos, sin
 
 class PIDControllerNode(Node):
     def __init__(self):
@@ -16,28 +17,28 @@ class PIDControllerNode(Node):
         self.PWM_MIN: int = -255
         self.PWM_MAX: int = 255
 
-        # Link's constants
-        self.M: int = 0.097
+        self.L1: float = 7.5
+        self.L2: float = 9.5
+        self.M1: float = 0.097
+        self.M2: float = 0.097
         self.G: float = 9.81
-        self.L: float = 7.5
-        self.SCALE: int = 10
 
         # Parámetros independientes para cada motor
         self.motor_params = {
             # Base
             'motor1': {
-                'Kp': 0.70,  # Ganancia proporcional
-                'Ki': 0.70,  # Ganancia integral
-                'Kd': 0.001,      # Ganancia derivativa
-                'setpoint': 45,  # Setpoint en grados
+                'Kp': 1.0,  # Ganancia proporcional
+                'Ki': 0.5,  # Ganancia integral
+                'Kd': 0.1,      # Ganancia derivativa
+                'setpoint': 60.0,  # Setpoint en grados
                 'measured_angle': 0.0,  # Valor medido en grados
                 'previous_error': 0.0,  # Error anterior
                 'integral': 0.0,  # Término integral acumulado
             },
             # End effector
             'motor2': {
-                'Kp': 0.35,  # Ganancia proporcional
-                'Ki': 0.0035,  # Ganancia integral
+                'Kp': 0.14585,  # Ganancia proporcional
+                'Ki': 0.40811,  # Ganancia integral
                 'Kd': 0.0,  # Ganancia derivativa
                 'setpoint': 0.0,  # Setpoint en grados
                 'measured_angle': 0.0,  # Valor medido en grados
@@ -55,6 +56,7 @@ class PIDControllerNode(Node):
         # Subscriptor para el valor medido (posición en grados)
         self.encoder1_sub = self.create_subscription(Int16, '/lower_encoder', self.encoder1_callback, 5)
         self.encoder2_sub = self.create_subscription(Int16, '/upper_encoder', self.encoder2_callback, 5)
+        self.inverse_kinematics_sub = self.create_subscription(Int16MultiArray, '/inverse_kinematics', self.inverse_kinematics_callback, 5)
 
         # Publicador para la señal de control
         self.control1_pub = self.create_publisher(Int16, 'lower_motor', 10)
@@ -68,16 +70,45 @@ class PIDControllerNode(Node):
         self.motor2_control_msg: Int16 = Int16()
 
 
-    def encoder1_callback(self, msg: Int16):
+    def inverse_kinematics_callback(self, msg: Int16MultiArray) -> None:
+        self.motor_params['motor1']['setpoint'] = msg.data[0]
+        self.motor_params['motor2']['setpoint'] = msg.data[1]
+
+
+    def encoder1_callback(self, msg: Int16) -> None:
         self.motor_params['motor1']['measured_angle'] = msg.data
 
 
-    def encoder2_callback(self, msg: Int16):
+    def encoder2_callback(self, msg: Int16) -> None:
         self.motor_params['motor2']['measured_angle'] = msg.data
 
 
+    def calculate_M(self, e2, thetaR2, L1, L2, m1, m2):
+        sigma1 = L1**2 * m1 + L1**2 * m2 + L2**2 * m2 + 2 * L1 * L2 * m2 * np.cos(e2 + thetaR2)
+        M = np.array([
+            [sigma1, m2 * L2**2 + L1 * m2 * np.cos(e2 + thetaR2) * L2],
+            [m2 * L2**2 + L1 * m2 * np.cos(e2 + thetaR2) * L2, sigma1]
+        ])
+        return M
+
+
+    def calculate_C(self, e2, ed1, ed2, thetaR2, L1, L2, m2):
+        C = np.array([
+            -L1 * L2 * m2 * np.sin(e2 + thetaR2) * (ed2**2 + ed2 + 2 * ed1),
+            L1 * L2 * ed1**2 * m2 * np.sin(e2 + thetaR2)
+        ])
+        return C
+
+
+    def calculate_G(self, e1, e2, thetaR1, thetaR2, L1, L2, m1, m2, g):
+        G_vec = np.array([
+            L1 * g * np.cos(e1 + thetaR1) * (m1 + m2) + L2 * g * m2 * np.cos(e1 + e2 + thetaR1 + thetaR2),
+            L2 * g * m2 * np.cos(e1 + e2 + thetaR1 + thetaR2)
+        ])
+        return G_vec
+
+
     def calculate_pid(self, params: dict[str, float], error: float) -> float:
-        angle: int = params['measured_angle']
         proportional = params['Kp'] * error
 
         params['integral'] += error * self.dt
@@ -86,18 +117,8 @@ class PIDControllerNode(Node):
 
         derivative = params['Kd'] * ((error - params['previous_error']) / self.dt)
 
-        # gravity_compensation: float = self.calculate_gravity_compensation(angle)
-
         # Señal de control final
         return proportional + integral + derivative
-
-
-    def calculate_gravity_compensation(self, angle: int) -> float:
-        angle_rad: float = angle * (3.1416 / 180.0)
-        tau_g = self.M * self.G * self.L * sin(angle_rad)
-        gravity_compensation: float = tau_g * self.SCALE
-
-        return gravity_compensation
 
 
     def clamp(self, control_signal: float) -> int:
@@ -131,6 +152,40 @@ class PIDControllerNode(Node):
         self.motor2_control_msg.data = control_signals[1]
         self.control1_pub.publish(self.motor1_control_msg)
         self.control2_pub.publish(self.motor2_control_msg)
+
+        # # Obtener los ángulos y velocidades actuales
+        # e1 = self.motor_params['motor1']['measured_angle']
+        # e2 = self.motor_params['motor2']['measured_angle']
+        # ed1 = (e1 - self.motor_params['motor1']['previous_angle']) / self.dt
+        # ed2 = (e2 - self.motor_params['motor2']['previous_angle']) / self.dt
+
+        # kp1: float = self.motor_params['motor1']['Kp']
+        # kd1: float = self.motor_params['motor1']['Kd']
+
+        # kp2: float = self.motor_params['motor2']['Kp']
+        # kd2: float = self.motor_params['motor2']['Kd']
+
+        # # Calcular las matrices y vectores
+        # M = self.calculate_M(e1, e2, ed1, ed2, 0, 0, self.L1, self.L2, self.M1, self.M2)
+        # C = self.calculate_C(e1, e2, ed1, ed2, 0, 0, self.L1, self.L2, self.M1, self.M2)
+        # G = self.calculate_G(e1, e2, 0, 0, self.L1, self.L2, self.M1, self.M2, self.G)
+
+        # # Tau: float = np.array([
+        # #     kp1 * e1 + kd1 * ed1 +
+        # # ])
+
+        # # Calcular las señales de control
+        # control_signals = np.linalg.inv(M) @ (-C - G)
+
+        # # Publicar señales de control
+        # self.motor1_control_msg.data = int(control_signals[0])
+        # self.motor2_control_msg.data = int(control_signals[1])
+        # self.control1_pub.publish(self.motor1_control_msg)
+        # self.control2_pub.publish(self.motor2_control_msg)
+
+        # # Actualizar ángulos anteriores
+        # self.motor_params['motor1']['previous_angle'] = e1
+        # self.motor_params['motor2']['previous_angle'] = e2
 
 
 def main(args=None):
